@@ -1,0 +1,81 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{{ parent()}}articles{% endblock %}
+
+{% block body %}
+    <div class="container mx-auto px-4 py-8">
+        <div class="flex justify-between gap-4 mb-8">
+            <div>
+                <h1 class="text-3xl font-light">Administration des articles</h1>
+                <p class="text-base-content/60 mt-1">
+                    Gérez vos articles et leur publication.
+                </p>
+            </div>
+            <a href="" class="btn btn-primary">
+                {{ ux_icon('material-symbols-light:add', { class: 'w-6 h-6' }) }}Nouvel article
+            </a>
+        </div>
+        {# Tableau #}
+        <div class="card bg-base-100 shadow-xl">
+            <div class="card-body p-0">
+                    <table class="table table-zebra">
+                        <thead>
+                        <tr>
+                            <th>Titre</th>
+                            <th>Catégorie</th>
+                            <th>Statut</th>
+                            <th>Date</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="flex items-center gap-3">
+                                            <div class="avatar">
+                                                <div class="rounded-full w-12 h-12">
+                                                    image
+                                                </div>
+                                            </div>
+                                        <div>
+                                            <div class="font-bold">
+                                               titre
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="" class="badge badge-outline">catégorie</a>
+                                </td>
+                                <td>
+                                    <span class="badge badge-success gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-current"></span>
+                                        Publié
+                                    </span>
+                                    <span class="badge badge-warning gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-current"></span>
+                                        Brouillon
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="text-sm">
+                                       Créé
+                                    </div>
+                                    <div class="text-xs opacity-50">
+                                       Heure
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="flex justify-center gap-2">
+                                        <a href="" class="btn btn-sm btn-ghost" title="Voir">Voir</a>
+                                        <a href="" class="btn btn-sm btn-info btn-outline">Modifier</a>
+                                        <a href="" class="btn btn-sm btn-error btn-outline">Supprimer</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+  {% endblock %}
