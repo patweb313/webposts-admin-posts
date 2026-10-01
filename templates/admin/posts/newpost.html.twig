@@ -1,0 +1,15 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{{ parent() }}New Post{% endblock %}
+
+{% block body %}
+    <section class="max-w-4xl mx-auto admin">
+        <div class="flex justify-between my-12">
+            <h1 class="text-3xl font-light">Ajouter un article</h1>
+            <a href="{{ path('app_admin_posts') }}" class="btn btn-ghost"><- Retour aux articles</a>
+        </div>
+        <div>
+            {{ form(form) }}
+        </div>
+    </section>
+{% endblock %}
