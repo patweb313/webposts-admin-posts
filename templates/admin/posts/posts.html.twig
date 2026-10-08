@@ -73,7 +73,7 @@
                                     <div class="flex justify-center gap-2">
                                         <a href="" class="btn btn-sm btn-ghost" title="Voir">Voir</a>
                                         <a href="" class="btn btn-sm btn-info btn-outline">Modifier</a>
-                                        <a href="" class="btn btn-sm btn-error btn-outline">Supprimer</a>
+                                        <a href="{{ path('app_admin_posts_delete', {id:post.id}) }}" class="btn btn-sm btn-error btn-outline">Supprimer</a>
                                     </div>
                                 </td>
                             </tr>

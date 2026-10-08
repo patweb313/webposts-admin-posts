@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Category;
 use App\Entity\Post;
+use App\Repository\CategoryRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -32,12 +33,17 @@ class PostType extends AbstractType
             ])
             ->add('isPublished', CheckboxType::class, [
                 'label' => 'Publier l\'article',
+                'required' => false,
             ])
             ->add('category', EntityType::class, [
                 'label' => 'Categorie',
                 'class' => Category::class,
                 'choice_label' => 'name',
                 'placeholder'  => 'Choisir une categorie',
+                // Trier la liste
+                'query_builder' => function (CategoryRepository $repository) {
+                    return $repository->findForm();
+                }
             ])
         ;
     }

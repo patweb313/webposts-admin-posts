@@ -37,13 +37,21 @@ final class AdminPostController extends AbstractController
             $post->setCreatedAt(new \DateTimeImmutable())
                  ->setUpdatedAt(new \DateTimeImmutable())
                  ->setSlug($slugger->slug($post->getTitle()));
-            $manager->persist($post);
+            $manager->persist($post); // Uniquement lors d'une insertion
             $manager->flush();
             return $this->redirectToRoute('app_admin_posts');
         }
         return $this->render('admin/posts/newpost.html.twig',[
             'form' => $form]
         );
+    }
+
+    #[Route('/admin/deletepost/{id}', name: 'app_admin_posts_delete')]
+    public function deletePost(Post $post, EntityManagerInterface $manager): Response
+    {
+        $manager->remove($post);
+        $manager->flush();
+        return $this->redirectToRoute('app_admin_posts');
     }
 
 }
